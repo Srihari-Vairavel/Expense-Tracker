@@ -1,0 +1,33 @@
+.mainHeading{
+    display: flex;
+    justify-content: center;
+}
+
+.subHeading{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    background-color: whitesmoke;
+    border-radius: 7px;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wider-input{
+    width:400px
+}
+
+.button{
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+

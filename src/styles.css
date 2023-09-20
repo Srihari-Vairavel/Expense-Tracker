@@ -1,0 +1,9 @@
+@import "primeicons/primeicons.css";
+ 
+body{
+    background-color: #29bdc1;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+    text-align: center;
+}

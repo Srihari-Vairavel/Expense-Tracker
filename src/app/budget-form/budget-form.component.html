@@ -1,0 +1,55 @@
+<p-toast position="top-center" ></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<div class="mainHeading">
+  <h2>Expense Tracker</h2>
+</div>
+<div class="container">
+  <div class="subHeading">
+    <h2>Create Budget</h2>
+  </div>
+  <div class="formContainer">
+    <form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+      <div class="flex flex-column gap-2">
+        <label>Budget Name</label><br>
+        <input type="text" class="wider-input" pInputText formControlName="name" /><br>
+        <span
+          *ngIf="!userProfile.get('name')?.valid && (userProfile.get('name')?.touched || userProfile.get('name')?.dirty)">
+          <span class="text-danger" *ngIf="userProfile.get('name')?.errors?.['required']">
+            Budget Name is required!
+          </span>
+        </span>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label>Amount</label><br>
+        <input type="text" class="wider-input" pInputText formControlName="amount" (keydown)="numbers($event)"/><br>
+        <span
+          *ngIf="!userProfile.get('amount')?.valid && (userProfile.get('amount')?.touched || userProfile.get('amount')?.dirty)">
+          <span class="text-danger" *ngIf="userProfile.get('amount')?.errors?.['required']">
+            Amount is required!
+          </span>
+        </span>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label>Date</label><br>
+        <p-calendar [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [showIcon]="true" formControlName="on_date" dateFormat="yy-mm-dd"></p-calendar><br>
+        <span
+          *ngIf="!userProfile.get('on_date')?.valid && (userProfile.get('on_date')?.touched || userProfile.get('on_date')?.dirty)">
+          <span class="text-danger" *ngIf="userProfile.get('on_date')?.errors?.['required']">
+            Date is required!
+          </span>
+        </span>
+      </div>
+      <br>
+      <div class="button">
+        <p-button type="submit" styleClass="p-button-raised" [disabled]="!userProfile.valid">{{editIndex === -1?"Submit" : "Update"}}</p-button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-budget-list [submittedData]="submittedData" [selectedRows]="selectedRows"
+  (editData)="edit($event)" (updateSelected)="updateSelectedRows($event)" (deleteData)="remove($event)"
+  (deleteSelectedData)="deleteSelectedBudget()" (sort)="onSort($event)" [totalPages]="totalPages"
+  [totalRows]="totalRows" (currentPageChange)="onPageChange($event)" (searchBudget)="search($event)"
+  (resetData)="reset()" (statusOfBudget)="closeBudgetStatus($event)"></app-budget-list>

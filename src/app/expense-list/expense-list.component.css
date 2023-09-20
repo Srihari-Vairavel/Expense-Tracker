@@ -1,0 +1,43 @@
+.container {
+    background-color: whitesmoke;
+    margin-top: 9px;
+    border-radius: 7px;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 9px;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+}
+
+.delete-all-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.p-input-icon-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: -55px;
+    margin-bottom: 20px;
+}
+
+.search-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.search-buttons p-button{
+    margin-right: 5px;
+}
+
+.action-buttons p-button{
+    margin:0px 5px 0px 5px;
+}
+

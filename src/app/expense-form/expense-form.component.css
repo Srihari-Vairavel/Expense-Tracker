@@ -1,0 +1,71 @@
+.container{
+    margin-top: 5px;
+    background-color: whitesmoke;
+    border-radius: 7px;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wider-input{
+    width:400px
+}
+
+.button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.budget-summary{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.total-budget{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 400px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.amount-spent{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 350px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.balance{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 400px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    box-shadow:0 8px 12px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+

@@ -1,0 +1,48 @@
+<p-toast position="top-center" ></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<div class="budget-summary">
+  <p class="total-budget">Total Budget<br>&#8377;{{ totalBudget }}</p>
+  <p class="amount-spent">Amount spend<br>&#8377;{{ totalAmountSpent }}</p>
+  <p class="balance">Remaining Balance<br>&#8377;{{ remainingBalance }}</p>
+</div>
+<div class="container">
+  <div class="heading">
+    <h2>Expense Details</h2>
+  </div>
+  <p-button type="button" (onClick)="goBack()" styleClass="p-button-success">Go Back</p-button>
+  <div class="formContainer">
+    <form [formGroup]="expenseProfile" (ngSubmit)="onSubmit()" novalidate>
+      <div class="flex flex-column gap-2">
+        <label>Expense Name</label><br>
+        <input type="text" class="wider-input" pInputText formControlName="name" /><br>
+        <span
+          *ngIf="!expenseProfile.get('name')?.valid && (expenseProfile.get('name')?.touched || expenseProfile.get('name')?.dirty)">
+          <span class="text-danger" *ngIf="expenseProfile.get('name')?.errors?.['required']">
+            Expense Name is required!
+          </span>
+        </span>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label>Amount</label><br>
+        <input type="text" class="wider-input" pInputText formControlName="amount" (keydown)="numbers($event)" /><br>
+        <span
+          *ngIf="!expenseProfile.get('amount')?.valid && (expenseProfile.get('amount')?.touched || expenseProfile.get('amount')?.dirty)">
+          <span class="text-danger" *ngIf="expenseProfile.get('amount')?.errors?.['required']">
+            Amount is required!
+          </span>
+        </span>
+      </div>
+      <div class="button">
+        <p-button type="submit" styleClass="p-button-raised"
+          [disabled]="!expenseProfile.valid || budgetStatus === 'Close'">{{editIndex === -1?"Submit" :
+          "Update"}}</p-button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-expense-list [data]="data" [currentPage]="currentPage" (editData)="edit($event)" (searchBudget)="search($event)"
+  (sort)="updateSorting($event)" [totalPages]="totalPages" [budgetStatus]="budgetStatus" [totalRows]="totalRows"
+  (currentPageChange)="onPageChange($event)" (deleteData)="remove($event)" [selectedRows]="selectedRows"
+  (updateSelected)="updateSelectedRows($event)" (resetData)="reset()"
+  (deleteSelectedData)="deleteSelectedExpense($event)"></app-expense-list>
